@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tanishq-clone</title>
+    <link rel="stylesheet" href="./public/assets/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <header>
+        <div class="main-header">
+          <div class="logo">
+            <div class="logo-1">
+              <a href="./home.html">
+               <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJhIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTQuODMgNzQuNzkiPjxkZWZzPjxzdHlsZT4uYntmaWxsOiM4MzI3Mjk7ZmlsbC1ydWxlOmV2ZW5vZGQ7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJiIiBkPSJNMzguNzksNy41NWMtLjYyLTIuOTEsMS4zMi01LjU2LDQuMTUtNS41Nmg3Ljk1YzIuMTIsLjA5LDQuNzctMS41OSw0Ljc3LTEuNTlWMTMuNzNjMCwxMy41MS03LjQyLDE5LjI0LTEwLjg2LDE5Ljc3LS42MiwuMjctMS4wNiwuMDktLjI2LS41Myw0LjY4LTMsNy40Mi0xMC4xNSw3LjY4LTE2LjI0VjQuNTVjLS45NywuNjItMi44MiwuNzEtMi44MiwuNzFoLTYuOTdjLTEuODUsMC0yLjgyLC42Mi0zLjYyLDIuMjltMzUuNTgsMGMuNjItMi45MS0xLjI0LTUuNTYtNC4xNS01LjU2aC03Ljk1Yy0yLjAzLC4wOS00Ljc3LTEuNTktNC43Ny0xLjU5VjEzLjczYzAsMTMuNTEsNy40MiwxOS4yNCwxMC44NiwxOS43NywuNjIsLjI3LDEuMDYsLjA5LC4yNy0uNTMtNC42OC0zLTcuNDItMTAuMTUtNy42OC0xNi4yNFY0LjU1Yy45NywuNjIsMi44MiwuNzEsMi44MiwuNzFoNy4wNmMxLjg1LDAsMi44MywuNjIsMy41MywyLjI5aDBaTTIwLjI2LDYyLjk5Yy0uNzEtMS43Ny0uMTgtMy43MSwuMjYtNC40MWg4LjAzdjQuNDFoMi4wM3YtMTkuNTFzLS42Mi0uMDktMS4wNiwuNjJjLTMsNC43Ny01LjMsNi04LjY1LDkuMzYtMi44MywyLjgyLTQuOTQsNi0zLjg5LDkuNTNoMy4yN1ptLjg4LTUuNzRoNy40MnYtOC4zOWMtMS44NSwzLjQ0LTYuMjcsNS4zLTcuNDIsOC4zOVptODQuOTMtMTUuOGMtMi41NiwyLjAzLTQuNjgsMy44LTUuODMsNi40NC0xLjI0LDIuNjUtMS41OSw2LjQ0LDAsOS43MSwxLjc3LDMuNjIsMy44LDUuNTYsNi4xOCw3Ljk0LDEuNjgsMS44NSw0Ljg2LDUuNTYsMy44LDguODMsLjc5LDAsMS44NS0xLjk0LDIuMDMtMi42NSwuNDQtMi4yOSwuMTgtMy40NC0uNzktNS4xMi0uNjItMS4xNS0xLjk0LTIuMjktMi45MS0zLjQ0LDEuNDEtMS4xNSwyLjkxLTIuODMsNC4xNS00LjUsMS41OS0yLjIxLDIuNTYtNS45MSwuNTMtOS41My0xLjg1LTMuNDQtNy4wNi02LjYyLTcuMTUtNy42OGgwWm0xLjA2LDIwLjM5Yy0yLjAzLTEuNjgtMy4yNy0zLjA5LTQuNS01LjgzLTEuMjQtMi40Ny0xLjMyLTUuMzktLjc5LTcuNDIsLjYyLTIuMjEsMi4xMi0zLjgsMy41My00Ljk0LDEuNTksMS4xNSwzLjI3LDIuNTYsNC41LDQuNTksMi4wMywzLjQ0LDIuMDMsNS45MSwuNzEsOS4yNy0uNzksMS45NC0xLjY4LDMuMDktMy40NCw0LjMzaDBaTS41Nyw0NS4wN2MtLjM1LS43MSwuMTgtMi41NiwyLjMtMi4zOEgxMy4yOGMxLjMyLC4wOSwyLjEyLS44OCwzLjgtLjcxLTIuMzgsMS45NC0yLjY1LDIuOTEtMy4wOSw0Ljc3bC0xLjY4LDEzLjY4Yy0uNDQsNS41NiwxLjE1LDEwLjE1LDUuMywxMy45NS0yLjU2LC4zNS04LjEyLTMuNzEtOC4zLTExLjEyLS4xOC0zLjcxLC44OC0xNS41NCwuODgtMTUuNTQsLjI2LTEuOTQsMS41LTMuMzUsMS41LTMuMzVIMS44Yy0uNjIsLjA5LS45NywuMDktMS4yNCwuNzFILjU3Wm04MS44NCwxNy4zOWgyLjU2di01LjIxaDYuOTd2NS40N2gyLjY1di0xOC44OWgtMi42NXYxMS45MmgtNi45N3YtMTEuOTJoLTIuNTZ2MTguNjNoMFptLTcuMTUtMTQuMjFjLS42MiwuMTgtMS4yNC0uMDktMS44NS0uNjItLjg4LS43OS0xLjI0LTEuNTktMi4zOC0yLjI5LTEuMjQtLjYyLTMtLjcxLTQuMDYsLjA5LS45NywuNzEtLjk3LDIuMywuMDksMy4xOCwyLjAzLDEuNTksNC4yNCwyLjQ3LDYuOCwzLjgsNC42OCwyLjQ3LDUuNDcsNi44LDIuMjEsOS0yLjc0LDEuODUtNi4xOCwyLjAzLTkuMjcsLjg4LTIuMzgtLjk3LTQuMjQtMi45MS00LjUtNS4zLDEuNTksMCwyLjEyLC43MSwyLjc0LDEuNjgsLjk3LDEuMzIsMS41OSwxLjg1LDMsMi40NywyLjAzLC43OSw0LjMzLC41Myw1LjY1LS4yNiwxLjk0LTEuMjQsMS42OC0zLjI3LC4yNi00LjU5LTIuOTEtMi43NC02LjUzLTMuNTMtOC41Ni01LjU2LTEuNzctMS43Ny0yLjM4LTMuNzEtLjUzLTUuNzQsMS41OS0xLjY4LDUuODMtMi4yMSw4LjMtLjA5LDEuMDYsLjk3LDEuODUsMi4xMiwyLjEyLDMuMzVoMFptLTIxLjEtMTAuMDZjMC0xLjQxLDEuMDYtMi40NywyLjQ3LTIuNDcsMS4yNCwwLDIuMzgsMS4wNiwyLjM4LDIuNDcsMCwxLjMyLTEuMTUsMi40Ny0yLjM4LDIuNDctMS40MSwwLTIuNDctMS4xNS0yLjQ3LTIuNDdabTEuMTUsNS42NWgyLjQ3djE5LjE2aC0yLjQ3di0xOS4xNlptLTE5LjI1LDE5LjE2aDEuNzd2LTEzLjE1Yy44OCwyLjU2LDUuMjEsNS45Miw1LjIxLDUuOTIsMCwwLDMuMzUsMi44Myw0Ljk0LDYuNzFsMS4wNiwuNTN2LTE5LjE2aC0xLjc3djEzLjQyYy0uOTctMi41Ni00Ljc3LTUuNTYtNC43Ny01LjU2LTIuOTEtMi41Ni00Ljg2LTYuMDktNS4zLTcuNzdsLTEuMTUtLjM1djE5LjQyaDBaIi8+PC9zdmc+" alt="image" class="logo-img d-none display-lg">
+              </a>
+              <div class="nav-link-2">
+                <div class="li-i">
+                  <a href=""> <i class="fa-solid fa-gem"></i>Daily Wear</a>
+                </div>
+                <div class="li-i">
+                  <a href=""> <i class="fa-solid fa-store"></i>Stores</a>
+                </div>
+                <div class="li-i" id="accountBtn">
+                  <a href=""><i class="fa-solid fa-file-invoice"></i>Account</a>
+                </div>
+                <div class="li-i" id="wishlistBtn">
+                  <a href=""><i class="fa-regular fa-heart"></i>Wishlist</a>
+                </div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                 
+                  <i class="fa-solid fa-bars fa-2xl"></i>
+                </div>
+              </div>
+            </div>
+            <div class="search-bar">
+              <input type="text" id="inlog" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+
+          <div class="nav-link" id="navLinks">
+            <div class="nav-link-1">
+              <div class="new-link">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i> New Jewellery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i> Gold</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i> Diamond</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i> Earrings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i>Best Sellers</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i>Mia</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i>Collection</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i>Wedding</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header> -->
+      
+      <header>
+        <div class="main-header">
+          <div class="logo">
+            <div class="logo-1">
+              <div class="menu-icon" onclick="toggleMenu()">
+              
+                <i class="fa-solid fa-bars fa-xl"></i>
+              </div>
+
+              <img
+                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJhIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTQuODMgNzQuNzkiPjxkZWZzPjxzdHlsZT4uYntmaWxsOiM4MzI3Mjk7ZmlsbC1ydWxlOmV2ZW5vZGQ7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJiIiBkPSJNMzguNzksNy41NWMtLjYyLTIuOTEsMS4zMi01LjU2LDQuMTUtNS41Nmg3Ljk1YzIuMTIsLjA5LDQuNzctMS41OSw0Ljc3LTEuNTlWMTMuNzNjMCwxMy41MS03LjQyLDE5LjI0LTEwLjg2LDE5Ljc3LS42MiwuMjctMS4wNiwuMDktLjI2LS41Myw0LjY4LTMsNy40Mi0xMC4xNSw3LjY4LTE2LjI0VjQuNTVjLS45NywuNjItMi44MiwuNzEtMi44MiwuNzFoLTYuOTdjLTEuODUsMC0yLjgyLC42Mi0zLjYyLDIuMjltMzUuNTgsMGMuNjItMi45MS0xLjI0LTUuNTYtNC4xNS01LjU2aC03Ljk1Yy0yLjAzLC4wOS00Ljc3LTEuNTktNC43Ny0xLjU5VjEzLjczYzAsMTMuNTEsNy40MiwxOS4yNCwxMC44NiwxOS43NywuNjIsLjI3LDEuMDYsLjA5LC4yNy0uNTMtNC42OC0zLTcuNDItMTAuMTUtNy42OC0xNi4yNFY0LjU1Yy45NywuNjIsMi44MiwuNzEsMi44MiwuNzFoNy4wNmMxLjg1LDAsMi44MywuNjIsMy41MywyLjI5aDBaTTIwLjI2LDYyLjk5Yy0uNzEtMS43Ny0uMTgtMy43MSwuMjYtNC40MWg4LjAzdjQuNDFoMi4wM3YtMTkuNTFzLS42Mi0uMDktMS4wNiwuNjJjLTMsNC43Ny01LjMsNi04LjY1LDkuMzYtMi44MywyLjgyLTQuOTQsNi0zLjg5LDkuNTNoMy4yN1ptLjg4LTUuNzRoNy40MnYtOC4zOWMtMS44NSwzLjQ0LTYuMjcsNS4zLTcuNDIsOC4zOVptODQuOTMtMTUuOGMtMi41NiwyLjAzLTQuNjgsMy44LTUuODMsNi40NC0xLjI0LDIuNjUtMS41OSw2LjQ0LDAsOS43MSwxLjc3LDMuNjIsMy44LDUuNTYsNi4xOCw3Ljk0LDEuNjgsMS44NSw0Ljg2LDUuNTYsMy44LDguODMsLjc5LDAsMS44NS0xLjk0LDIuMDMtMi42NSwuNDQtMi4yOSwuMTgtMy40NC0uNzktNS4xMi0uNjItMS4xNS0xLjk0LTIuMjktMi45MS0zLjQ0LDEuNDEtMS4xNSwyLjkxLTIuODMsNC4xNS00LjUsMS41OS0yLjIxLDIuNTYtNS45MSwuNTMtOS41My0xLjg1LTMuNDQtNy4wNi02LjYyLTcuMTUtNy42OGgwWm0xLjA2LDIwLjM5Yy0yLjAzLTEuNjgtMy4yNy0zLjA5LTQuNS01LjgzLTEuMjQtMi40Ny0xLjMyLTUuMzktLjc5LTcuNDIsLjYyLTIuMjEsMi4xMi0zLjgsMy41My00Ljk0LDEuNTksMS4xNSwzLjI3LDIuNTYsNC41LDQuNTksMi4wMywzLjQ0LDIuMDMsNS45MSwuNzEsOS4yNy0uNzksMS45NC0xLjY4LDMuMDktMy40NCw0LjMzaDBaTS41Nyw0NS4wN2MtLjM1LS43MSwuMTgtMi41NiwyLjMtMi4zOEgxMy4yOGMxLjMyLC4wOSwyLjEyLS44OCwzLjgtLjcxLTIuMzgsMS45NC0yLjY1LDIuOTEtMy4wOSw0Ljc3bC0xLjY4LDEzLjY4Yy0uNDQsNS41NiwxLjE1LDEwLjE1LDUuMywxMy45NS0yLjU2LC4zNS04LjEyLTMuNzEtOC4zLTExLjEyLS4xOC0zLjcxLC44OC0xNS41NCwuODgtMTUuNTQsLjI2LTEuOTQsMS41LTMuMzUsMS41LTMuMzVIMS44Yy0uNjIsLjA5LS45NywuMDktMS4yNCwuNzFILjU3Wm04MS44NCwxNy4zOWgyLjU2di01LjIxaDYuOTd2NS40N2gyLjY1di0xOC44OWgtMi42NXYxMS45MmgtNi45N3YtMTEuOTJoLTIuNTZ2MTguNjNoMFptLTcuMTUtMTQuMjFjLS42MiwuMTgtMS4yNC0uMDktMS44NS0uNjItLjg4LS43OS0xLjI0LTEuNTktMi4zOC0yLjI5LTEuMjQtLjYyLTMtLjcxLTQuMDYsLjA5LS45NywuNzEtLjk3LDIuMywuMDksMy4xOCwyLjAzLDEuNTksNC4yNCwyLjQ3LDYuOCwzLjgsNC42OCwyLjQ3LDUuNDcsNi44LDIuMjEsOS0yLjc0LDEuODUtNi4xOCwyLjAzLTkuMjcsLjg4LTIuMzgtLjk3LTQuMjQtMi45MS00LjUtNS4zLDEuNTksMCwyLjEyLC43MSwyLjc0LDEuNjgsLjk3LDEuMzIsMS41OSwxLjg1LDMsMi40NywyLjAzLC43OSw0LjMzLC41Myw1LjY1LS4yNiwxLjk0LTEuMjQsMS42OC0zLjI3LC4yNi00LjU5LTIuOTEtMi43NC02LjUzLTMuNTMtOC41Ni01LjU2LTEuNzctMS43Ny0yLjM4LTMuNzEtLjUzLTUuNzQsMS41OS0xLjY4LDUuODMtMi4yMSw4LjMtLjA5LDEuMDYsLjk3LDEuODUsMi4xMiwyLjEyLDMuMzVoMFptLTIxLjEtMTAuMDZjMC0xLjQxLDEuMDYtMi40NywyLjQ3LTIuNDcsMS4yNCwwLDIuMzgsMS4wNiwyLjM4LDIuNDcsMCwxLjMyLTEuMTUsMi40Ny0yLjM4LDIuNDctMS40MSwwLTIuNDctMS4xNS0yLjQ3LTIuNDdabTEuMTUsNS42NWgyLjQ3djE5LjE2aC0yLjQ3di0xOS4xNlptLTE5LjI1LDE5LjE2aDEuNzd2LTEzLjE1Yy44OCwyLjU2LDUuMjEsNS45Miw1LjIxLDUuOTIsMCwwLDMuMzUsMi44Myw0Ljk0LDYuNzFsMS4wNiwuNTN2LTE5LjE2aC0xLjc3djEzLjQyYy0uOTctMi41Ni00Ljc3LTUuNTYtNC43Ny01LjU2LTIuOTEtMi41Ni00Ljg2LTYuMDktNS4zLTcuNzdsLTEuMTUtLjM1djE5LjQyaDBaIi8+PC9zdmc+"
+                alt="image"
+                class="logo-img d-none display-lg"
+              />
+
+              <div class="nav-link-2">
+                <div class="li-i">
+                  <a href="./daily-wear.html">
+                    <i class="fa-solid fa-gem fa-xl"></i>
+                    <p>Daily Wear</p>
+                  </a>
+                </div>
+                <div class="li-i">
+                  <a href="">
+                    <i class="fa-solid fa-store fa-xl"></i>
+                    <p>Stores</p>
+                  </a>
+                </div>
+                <div class="li-i" id="accountBtn">
+                  <a href=""
+                    ><i class="fa-solid fa-file-invoice fa-xl"></i>
+                    <p>Account</p></a
+                  >
+                </div>
+                <div class="li-i" id="wishlistBtn">
+                  <a href=""
+                    ><i class="fa-regular fa-heart fa-xl"></i>
+                    <p>Wishlist</p>
+                  </a>
+                </div>
+                <div class="li-i" id="cart">
+                  <a href="">
+                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                    <p>Cart</p>
+<div id="add">
+  <i class="fa-light fa-circle-0"></i>
+</div>
+                  </a>
+               
+
+                </div>
+              </div>
+            </div>
+            <div class="search-bar">
+              <input
+                type="text"
+                id="inlog"
+                placeholder="Search for Gold Jewellery, Diamond jewellery and more"
+              />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+
+          <div class="nav-link" id="navLinks">
+            <div class="nav-link-1">
+              <div class="new-link">
+                <ul>
+                  <li>
+                    <a><i class="fa-solid fa-arrow-right"></i> New Jewellery</a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i> Gold</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i> Diamond</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i> Earrings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i>Best Sellers</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i>Mia</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i>Collection</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa-solid fa-arrow-right"></i>Wedding</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section>
+        <div class="all-text">
+          <div class="text-cls">
+            <ul>
+              <li><a href="#">All Jewellery</a></li>
+              <li><a href="#">GOLD</a></li>
+              <li><a href="#"> DIAMOND</a></li>
+              <li><a href="#">EARRING</a></li>
+              <li><a href="#">RING</a></li>
+              <li><a href="#">BESTSELLER </a></li>
+              <li><a href="#">MIA</a></li>
+              <li><a href="#">COLLECTION</a></li>
+              <li><a href="#">WEDDING</a></li>
+              <li><a href="#">GIFTING</a></li>
+              <li><a href="#">GOLDEN HARVEST</a></li>
+              <li><a href="#">MORE &#43;</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="vid-section">
+          <video src="./public/assets/videos/video.mp4" autoplay></video>
+        </div>
+      </section>
+
+      <section>
+        <div class="new-arr-section">
+          <h1><span>N</span>ew <span>A</span>rrivals</h1>
+
+          <div class="capitalize-span">
+            <span>a</span>t <span>t</span>anishq <span>t</span>his
+            <span>w</span>eek
+          </div>
+        </div>
+      </section>
+      <section class="min-sec">
+        <div class="main-img">
+          <div class="img-god">
+            <img src="./public/assets/img/images/god.jpg" alt="" />
+
+            <div class="god-btn">
+              <button>Explore Curation &#62;</button>
+            </div>
+          </div>
+
+          <div class="arr-img-sec">
+            <img src="./public/assets/img/images/a.jpg" alt="" />
+            <img src="./public/assets/img/images/b.jpg" alt="" />
+            <img src="./public/assets/img/images/c.jpg" alt="" />
+            <img src="./public/assets/img/images/ring.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="main-sec">
+        <div class="main-discover">
+          <div class="discover-sec">
+            <h1>
+              <span>D</span>iscover <span>E</span>ndless
+              <span>P</span>ossibilities
+            </h1>
+            <p>Explore By Category</p>
+          </div>
+          <div class="discover-slider">
+            <div class="discover-slider-1">
+              <img src="./public/assets/img/images/images.jpeg" alt="" />
+              <p class="discover-p">Earrings</p>
+            </div>
+            <div class="discover-slider-1">
+              <img src="./public/assets/img/images/inner chain.jpg" alt="" />
+              <p class="discover-p">Neckwear</p>
+            </div>
+            <div class="discover-slider-1">
+              <img src="./public/assets/img/images/inner pendant.jpg" alt="" />
+              <p class="discover-p">pendant</p>
+            </div>
+            <div class="discover-slider-1">
+              <img
+                src="./public/assets/img/images/necklace-desktop.jpg"
+                alt=""
+              />
+              <p class="discover-p">Necklash</p>
+            </div>
+            <div class="discover-slider-1">
+              <img src="./public/assets/img/images/inner xyz.jpg" alt="" />
+              <p class="discover-p">Gold Earrings</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="main-item-price">
+          <div class="item-price">
+            <div class="item-price-1">
+              <img
+                src="./public/assets/img/images/slider-left-1.webp"
+                alt="   "
+              />
+              <div class="inner-item-price">
+                <span> Studs & Tops</span>
+                <span> 1154 Items</span>
+              </div>
+            </div>
+            <div class="item-price-1">
+              <img
+                src="./public/assets/img/images/slider-left-2.webp"
+                alt="   "
+              />
+              <div class="inner-item-price">
+                <span>Drops & Danglers</span>
+                <span>637 Items</span>
+              </div>
+            </div>
+            <div class="item-price-1">
+              <img
+                src="./public/assets/img/images/slider-left-3.webp"
+                alt="   "
+              />
+              <div class="inner-item-price">
+                <span>Hoops & Huggies</span>
+                <span>263 Items</span>
+              </div>
+            </div>
+            <div class="item-price-1">
+              <img
+                src="./public/assets/img/images/slider-left-4.webp"
+                alt="   "
+              />
+              <div class="inner-item-price">
+                <span>Jhumkas</span>
+                <span>49 Items</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-p">
+            <p><strong>2000+</strong> styling options to pick from</p>
+            <button>View Category</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="best-main-sell">
+          <div class="best-sell-sec">
+            <p><span>B</span>est-<span>S</span>elling <span>E</span>arrings</p>
+          </div>
+          <div class="best-sell-spotlight">
+            <img
+              width="32"
+              height="32"
+              src="https://img.icons8.com/stencil/32/sparkling.png"
+              alt="sparkling"
+            />
+            <p>sportlight</p>
+          </div>
+
+          <div class="img-slider">
+            <div class="img-slides">
+              <img src="./public/assets/img/images/-----.webp  " alt="" />
+              <img src="./public/assets/img/images/1234.webp" alt="" />
+              <img src="./public/assets/img/images/a.jpg" alt="" />
+              <img src="./public/assets/img/images/bbbbb.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="daily-vibe-sec">
+          <div class="daily-vibe-text">
+            <h2>
+              <span>C</span>hoose <span>Y</span>our <span>D</span>aily
+              <span>V</span>ibe
+            </h2>
+            <p>Find Jewellery that matches your Style</p>
+          </div>
+
+          <div class="daily-vibe-btn">
+            <div class="daily-vibe-btn-inside">
+              <button>Modern Minimalism</button>
+              <button>Traditional Touch</button>
+              <button>Work Wear</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="just-img">
+        <div class="main-img-sec">
+          <div class="inner-img">
+            <img src="./public/assets/img/images/daily-img-2.jpeg" alt="" />
+            <img src="./public/assets/img/images/limited.jpeg" alt="" />
+            <img src="./public/assets/img/images/daily-img-1.jpeg" alt="" />
+          </div>
+        </div>
+        <div class="main-img-btn">
+          <button>Explore Collection &#62;</button>
+        </div>
+      </section>
+
+      <section class="pr-sec">
+        <div class="promise section">
+          <div class="tan-promise">
+            <h1><span>T</span>anishq <span>P</span>romises</h1>
+            <p>With 450+ stores, the largest network of trust</p>
+          </div>
+          <div class="promise-lack">
+            <div class="promise-1">
+              <img src="./public/assets/img/images/gold surety.jpeg" alt="" />
+
+              <p>
+                Tanishq <br />
+                Exchange
+              </p>
+            </div>
+            <div class="promise-1">
+              <img src="./public/assets/img/images/jpg-1.jpg" alt="" />
+              <p>
+                Purity <br />
+                Guarantee
+              </p>
+            </div>
+            <div class="promise-1">
+              <img src="./public/assets/img/images/jpg-2.webp" alt="" />
+              <p>
+                100% Natural <br />
+                Diamond
+              </p>
+            </div>
+            <div class="promise-1">
+              <img src="./public/assets/img/images/jpg.jpg" alt="" />
+              <p>
+                lifetime <br />
+                maintenance
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="adv-sec">
+          <img
+            src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/section-bestseller/bestseller-desktop-new.jpg"
+            class="md:tw-block tw-hidden tw-rounded-lg tw-w-full"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <section>
+        <div class="social-sec">
+          <div class="social-btn">
+            <button>Aasha Hegde</button>
+            <button>Kushi Hegde</button>
+            <button>Nikita Dutta</button>
+            <button>Astha Shah</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="main-social-text">
+          <div class="social-text">
+            <div class="inside">
+              <h1>
+                Aashna is slaying her day-to-night with statement gold & diamond
+                jewellery
+              </h1>
+              <div class="inside-text">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officiis, modi soluta dolore provident ipsam exercitationem?
+                  Blanditiis fuga recusandae quae iure, dolores harum inventore?
+                  Possimus mollitia accusantium magnam tempore debitis nihil
+                  quisquam amet quibusdam laboriosam, dolorum numquam, neque,
+                  sit vero recusandae cum? Modi, quaerat. Perferendis minus
+                  ducimus eligendi labore, assumenda tenetur.
+                  <br />
+                  #Tanishq #Tanishq-Gold #Make Your Day Special
+                </p>
+                <div class="social-img">
+                  <img src="./public/assets/img/images/actress.jpeg " alt="" />
+                  <div class="tags">
+                    <strong>Aashna Hegde</strong>
+                    <p>Digital Creator</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="right-img">
+              <img src="./public/assets/img/images/pose-insta.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="para">
+            <h1>
+              <span>B</span>e a <span>T</span>rend <span>S</span>pasetter!
+            </h1>
+            <p>
+              Follow for fresh ideas & share your style secrets with
+              Tanishqfresh ideas & share your style secrets with Tanishq
+            </p>
+          </div>
+          <div class="social-logo">
+            <img
+              width="48"
+              height="48"
+              src="https://img.icons8.com/color/48/facebook-new.png"
+              alt="facebook-new"
+            />
+            <img
+              width="50"
+              height="50"
+              src="https://img.icons8.com/ios-filled/50/twitterx--v1.png"
+              alt="twitterx--v1"
+            />
+            <img
+              width="64"
+              height="64"
+              src="https://img.icons8.com/cute-clipart/64/instagram-new.png"
+              alt="instagram-new"
+            />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="adv-sec-1">
+          <div class="adv-img">
+            <img src="./public/assets/img/images/adv-1.jpg" alt="" />
+            <p></p>
+
+            <button class="adv-btn">Get in Touch &#62;</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="special-sec">
+          <div class="special-para">
+            <h1>
+              <span>S</span>omething <span>S</span>pecial <span>F</span>or
+              <span>S</span>omeone
+            </h1>
+            <p>Explore Gifting Options</p>
+          </div>
+          <div class="main-btn">
+            <div class="special-btn">
+              <button>Birthday</button>
+              <button>Anniversary</button>
+              <button>Treat Yourself</button>
+            </div>
+          </div>
+          <div class="special-cls">
+            <div class="special-left">
+              <div class="inner-left">
+                <img src="./public/assets/img/images/inner xyz.jpg" alt="" />
+                <p>Unveil joy with our exceptional jewellery</p>
+              </div>
+            </div>
+            <div class="special-right">
+              <div class="inner-right">
+                <div>
+                  <img
+                    src="./public/assets/img/images/slider-left-1.webp"
+                    alt=""
+                  />
+                  <p>Lorem ipsum dolor sit</p>
+                  <p>₹24,000</p>
+                </div>
+                <div>
+                  <img
+                    src="./public/assets/img/images/slider-left-2.webp"
+                    alt=""
+                  />
+                  <p>Lorem ipsum dolor sit</p>
+                  <p>₹2,000</p>
+                </div>
+                <div>
+                  <img
+                    src="./public/assets/img/images/slider-left-3.webp"
+                    alt=""
+                  />
+                  <p>Lorem ipsum dolor sit</p>
+                  <p>₹15,000</p>
+                </div>
+                <div>
+                  <img
+                    src="./public/assets/img/images/slider-left-4.webp"
+                    alt=""
+                  />
+                  <p>Lorem ipsum dolor sit</p>
+                  <p>₹1,000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="look-section-main">
+          <div class="look-turn">
+            <h2>
+              <span>L</span>ooks <span>T</span>hat <span>T</span>urn
+              <span>H</span>eads
+            </h2>
+            <p>Shop the look</p>
+          </div>
+          <div class="look-img">
+            <div class="inner-look-img">
+              <img src="./public/assets/img/images/-----.webp" alt="" />
+              <p>Dainty Gold Ring</p>
+            </div>
+            <div class="inner-look-img">
+              <img src="./public/assets/img/images/1234.webp" alt="" />
+              <p>Shimmering Simplicity Diamond Earrings</p>
+            </div>
+            <div class="inner-look-img">
+              <img src="./public/assets/img/images/bbbbb.jpg" alt="" />
+              <p>Captivating Contemporary Diamond Stud Bracelet</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="spotlight-main-sec">
+          <div class="para-spotlight">
+            <h1>
+              <span>W</span>hat's <span>S</span>tealing <span>T</span>he
+              <span>S</span>potlight
+            </h1>
+            <p>Trending Treasures You Need</p>
+          </div>
+          <div class="spotlight-main-btn">
+            <div class="spotlight-special-btn">
+              <button>Glam Gold</button>
+              <button>Modern Polki</button>
+              <button>Gemstones</button>
+            </div>
+          </div>
+
+          <div class="spotlight-special-right">
+            <div class="spotlight-para">
+              <h1>Glam Gold</h1>
+              <p>
+                Tanishq GlamDays brings to you a modern take on Daily wear Gold
+                jewellery, inspired by designs from around the world. A range of
+                contemporary pieces that can add a touch of modernity in your
+                everyday style, be it to office, running errands or even a
+                beautiful ethnic ensemble
+              </p>
+              <div class="spotlight-btn">
+                <button>Discover Item</button>
+              </div>
+            </div>
+
+            <div class="spotlight-inner-right">
+              <div class="right-light">
+                <img src="./public/assets/img/images/model-1.jpeg" alt="" />
+              </div>
+              <div>
+                <img src="./public/assets/img/images/model-2.jpeg" alt="" />
+              </div>
+              <div>
+                <img src="./public/assets/img/images/model-3.jpeg" alt="" />
+              </div>
+              <div>
+                <img src="./public/assets/img/images/model-4.jpeg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="collection-sec">
+          <div class="collection-pic">
+            <img
+              src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/featured-collections/featured-desktop.jpg"
+            />
+          </div>
+
+          <div class="para-collection">
+            <div class="para-1">
+              <p>Feature Collection</p>
+              <h1>
+                Glam Day, Every Day: Tanishq’s Take On Daily Wear Gold Jewellery
+              </h1>
+              <p>
+                At Tanishq, we have a simple belief: elegance should never be
+                limited to just special occasions. That’s why we’re excited to
+                unveil our newest creation, GlamDays – a destination for daily
+                wear jewellery infusing a touch of luxury into your daily
+                routine with statement gold and diamond jewellery, never seen in
+                India so far
+              </p>
+              <div class="collection-btn">
+                <button>Read More About The Collection</button>
+              </div>
+              <div class="security">
+                <div>
+                  <img
+                    src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/tanishq-promises/tanishq.png"
+                    alt=""
+                  />
+                  <p>Tanishq Exchange</p>
+                </div>
+                <div>
+                  <img
+                    src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/tanishq-promises/hallmark.png"
+                    alt=""
+                  />
+                  <p>Gold Hallmark</p>
+                </div>
+
+                <div>
+                  <img
+                    src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/tanishq-promises/quality.png"
+                    alt=""
+                  />
+                  <p>Quality Craftsmanship</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="image-sec">
+          <img
+            src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/section-bestseller/spoilt-mobile.png"
+            class="tw-block md:tw-hidden tw-rounded-lg"
+            alt=""
+          />
+
+          <div class="image-para">
+            <h2>Spoilt for Choices?</h2>
+            <p>Let us help you find</p>
+          </div>
+
+          <div class="image-btn">
+            <button>Find Your Perfect Piece</button>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 20px">
+        <div class="exchange-sec">
+          <div class="main-exchange">
+            <img
+              src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/tanishq-promises/1.png"
+              class="local-main"
+              alt=""
+            />
+
+            <h2>Tanishq Exchangex</h2>
+            <p>
+              Every hour over 100 Indians join Tanishq's exchange community to
+              upgrade their old gold at a better value!
+            </p>
+          </div>
+          <div class="inner-exhange">
+            <img
+              src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/exchange/exchange-mobile.gif"
+              poster=""
+              class="tw-block lg:tw-hidden lg:tw-w-[400px] tw-w-[200px] tw-h-[200px] tw-rounded-2xl lg:tw-h-[400px] tw-object-cover"
+            />
+
+            <button>Learn More</button>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="main-footer">
+          <div class="lg-desk">
+            <div class="min-desk">
+              <div class="foot-1">
+                <div class="plush">
+                  <h1>Useful Links</h1>
+                  <button onclick="arr_sec()" class="minus">+</button>
+                </div>
+                <ul id="click_1">
+                  <li><a href="">Delivery information</a></li>
+                  <li><a href="">international shipping</a></li>
+                  <li><a href="">payment option</a></li>
+                  <li><a href="">Track your order</a></li>
+                  <li><a href="">Return</a></li>
+                  <li><a href="">Find a store</a></li>
+                </ul>
+              </div>
+              <div class="foot-2">
+                <div class="plush">
+                  <h1>information</h1>
+                  <button onclick="arr_sec_2()" class="minus_2">+</button>
+                </div>
+                <ul id="click_2">
+                  <li><a href="">Delivery information</a></li>
+                  <li><a href="">international shipping</a></li>
+                  <li><a href="">payment option</a></li>
+                  <li><a href="">Track your order</a></li>
+                  <li><a href="">Return</a></li>
+                  <li><a href="">Find a store </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="foot-3">
+              <div class="plush">
+                <h1>Contact us</h1>
+                <button onclick="arr_sec_3()" class="minus_3">+</button>
+              </div>
+              <ul id="click_3">
+                <li>
+                  <a href=""
+                    ><i class="fa-solid fa-envelope"></i> Write to us</a
+                  >
+                </li>
+                <li>
+                  <a href=""><i class="fa-solid fa-phone"></i> 1800 121 1500</a>
+                </li>
+                <li>
+                  <a href=""
+                    ><i class="fa-brands fa-rocketchat"></i> Chat with us</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="main-footer-2">
+              <p><strong>Follow Us on</strong></p>
+              <div class="main-foot-img">
+                <i class="fa-brands fa-facebook-f fa-lg"></i>
+                <i class="fa-brands fa-instagram fa-lg"></i>
+                <i class="fa-brands fa-x-twitter fa-lg"></i>
+              </div>
+              <p><strong>Download the Tanishq App Now</strong></p>
+              <img
+                style="width: 20%"
+                class="img-fluid qr-app d-lg-block d-md-block d-none"
+                src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw13b9f54e/images/footer/tanishq-app-newqr.png"
+                alt="appstore"
+              />
+              <div class="main-foot-img">
+                <i class="fa-brands fa-google-play fa-lg"></i>
+                <i class="fa-brands fa-app-store fa-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="inner-foot">
+           
+            <div class="main-footer-3">
+              <div class="inner-foot">
+                <div class="foot-p">
+                  <p>Terms & Conditions</p>
+                  <p>Privacy Policy</p>
+                  <p>Disclaimer</p>
+                </div>
+                2024 Titan Company Limited. All Rights Reserved.
+              </div>
+              <div class="inner-foot-2">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+                <i class="fa-brands fa-google-pay"></i>
+                <i class="fa-brands fa-bimobject"></i>
+                <i class="fa-brands fa-cc-apple-pay"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        var navLinks = document.getElementById("navLinks");
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "none";
+        } else {
+          navLinks.style.display = "flex";
+        }
+      }
+
+      function arr_sec() {
+        var click_1 = document.getElementById("click_1");
+        if (click_1.style.display === "flex") {
+          click_1.style.display = "none";
+          document.querySelector(".minus").innerHTML = "+";
+        } else {
+          click_1.style.display = "flex";
+          document.querySelector(".minus").innerHTML = "-";
+        }
+      }
+      function arr_sec_2() {
+        var click_2 = document.getElementById("click_2");
+        if (click_2.style.display === "flex") {
+          click_2.style.display = "none";
+          document.querySelector(".minus_2").innerHTML = "+";
+        } else {
+          click_2.style.display = "flex";
+          document.querySelector(".minus_2").innerHTML = "-";
+        }
+      }
+
+      function arr_sec_3() {
+        var click_3 = document.getElementById("click_3");
+        if (click_3.style.display === "flex") {
+          click_3.style.display = "none";
+          document.querySelector(".minus_3").innerHTML = "+";
+        } else {
+          click_3.style.display = "flex";
+          document.querySelector(".minus_3").innerHTML = "-";
+        }
+      }
+    </script>
+  </body>
+</html>
