@@ -3,14 +3,15 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require('cors');
 dotenv.config();
 app.use(express.json());
 PORT = process.env.PORT;
-// app.use(cors());
+app.use(cors());
 
-const authRoute = require("./routes/authRoute");
-const userRoute = require("./routes/userRoute");
-const productRoute = require("./routes/productRoute");
+const authRoute = require("../Tanishq/Tanishq/BackEnd/routes/authRoute");
+const userRoute = require("../Tanishq/Tanishq/BackEnd/routes/userRoute");
+const productRoute = require("../Tanishq/Tanishq/BackEnd/routes/productRoute");
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);

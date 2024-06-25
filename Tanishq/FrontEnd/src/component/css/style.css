@@ -5994,8 +5994,8 @@ gap: 10px;
   }
   .img-scroll-1 img {
     /* margin: 20px 0; */
-    height: 54rem;
-    width: 96rem;
+    height: 53rem;
+    width: 99.9rem;
   }
   .text-cls ul {
     display: flex;
@@ -6018,7 +6018,7 @@ gap: 10px;
       transform: translateX(-200%);
     }
     60% {
-      transform: translateX(-290%);
+      transform: translateX(-285%);
     }
   }
   .img-2 {
