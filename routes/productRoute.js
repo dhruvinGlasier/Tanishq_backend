@@ -5,11 +5,41 @@ const {
 } = require("../middlewares/verifyToken");
 const Product = require("../models/product.model");
 const router = express.Router();
+const multer  = require("multer");
 
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
-  const newProduct = new Product(req.body);
+const storage = multer.diskStorage({
+  destination:(req,file,cb) =>{
+      cb(null,"public/images")
+  },
+  filename:(req,file,cb) =>{ 
+      cb(null, Date.now() + "-" + file.originalname)
+  }
+})
+
+const upload = multer({
+  storage:storage,
+  limits: { fileSize: 1024 * 1024 * 5 }
+})
+
+router.post("/", verifyTokenAndAdmin, upload.single('file'), async (req, res) => {
   try {
+  // const { title , description , price , category } = req.body
+  const title = req.body.title
+  const description = req.body.description
+  const price = req.body.price
+  const category = req.body.category
+  console.log("------",req.file,title,description,price,category);
+  const image = req.file.filename
+  const newProduct = new Product({
+    title:title,
+    description:description,
+    price:price,
+    category:category,
+    image:`http://localhost:4500/images/${image}`
+  });
+  console.log("----this is new",newProduct);
     const savedProduct = await newProduct.save();
+    console.log("savedProduct----------", savedProduct);
     res.status(200).json({ savedProduct, success: true, error: false });
   } catch (error) {
     res.status(500).json(error);

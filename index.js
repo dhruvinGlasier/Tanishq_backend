@@ -1,12 +1,17 @@
 const express = require("express");
-// const cors = require("cors");
+const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-app.use(express.json());
+
+
 PORT = process.env.PORT;
-// app.use(cors());
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use('/images', express.static('public/images'));
 
 const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
