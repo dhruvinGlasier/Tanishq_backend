@@ -24,6 +24,7 @@ padding:10px;
 
 }
 .inner-main label {
+    width: 100%;
     font-size: 22px;
     font-weight: 600;
     gap: 10px;
@@ -32,8 +33,8 @@ padding:10px;
 }
 
 form{
-    width: 400px;
-    height: 300px;
+
+    height: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px ;
@@ -57,7 +58,7 @@ form input {
 
 .inner-main-1{
     width: 461px;
-    height: 400px;
+    height: 500px;
     display: flex;
 flex-direction: column; 
 align-items: center;
