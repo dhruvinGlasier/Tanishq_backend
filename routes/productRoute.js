@@ -55,7 +55,7 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
       },
       { new: true }
     );
-    res.status(200).json(updatedProduct);
+    res.status(200).json({updatedProduct,message:"Product Updated"});
   } catch (error) {
     res.status(500).json(error);
   }
